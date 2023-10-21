@@ -1,0 +1,41 @@
+package abc;
+                               //Example of co-varient
+
+
+class A
+
+{
+	int a=66;
+	A show()
+	{
+		System.out.println(" use co-vrient"+a);
+		//return this;// invoke current object
+		//return new A ();
+		return new B ();//use child return type
+		
+	}
+}
+
+class B extends A
+{
+	B show()
+	{
+		super.show();
+		System.out.println("in class B");
+		//return this; // invoke current object
+		return new B();
+		//return new A()//ERROR not allow parent return type
+		
+	}
+}
+public class Demo
+{
+	
+	public static void main(String [] args)
+	{
+		B b1=new B();
+		b1.show();
+	}
+		
+
+}
